@@ -1,0 +1,35 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int countVowels(const char* p) {
+	int count = 0;
+
+	while (*p != '\0') {
+		char ch = *p;
+
+		// 统一转换为小写，兼容大小写元音字母
+		if (ch >= 'A' && ch <= 'Z') {
+			ch = ch - 'A' + 'a';
+		}
+
+		if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+			++count;
+		}
+
+		++p;
+	}
+
+	return count;
+}
+
+int main() {
+	string str;
+	getline(cin, str);
+
+	int result = countVowels(str.c_str());
+
+	cout << "Number of vowels: " << result << endl;
+
+	return 0;
+}
