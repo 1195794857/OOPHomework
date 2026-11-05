@@ -1,0 +1,46 @@
+#include <iostream>
+#include <iomanip>
+#include <string>
+#include <vector>
+using namespace std;
+
+struct Student {
+	string name;
+	double chinese;
+	double math;
+	double english;
+};
+
+int main() {
+	int n;
+	cin >> n;
+
+	vector<Student> students(n);
+
+	for (int i = 0; i < n; ++i) {
+		cin >> students[i].name
+			>> students[i].chinese
+			>> students[i].math
+			>> students[i].english;
+	}
+
+	cout << fixed << setprecision(2);
+
+	for (int i = 0; i < n; ++i) {
+		double average = (students[i].chinese + students[i].math + students[i].english) / 3.0;
+
+		cout << left << setw(10) << students[i].name << right;
+		cout << setw(8) << students[i].chinese;
+		cout << setw(8) << students[i].math;
+		cout << setw(8) << students[i].english;
+		cout << setw(8) << average;
+
+		if (average >= 90.0) {
+			cout << " Excellent";
+		}
+
+		cout << endl;
+	}
+
+	return 0;
+}
