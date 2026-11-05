@@ -1,0 +1,33 @@
+#include <iostream>
+
+// 引用版本
+void swap(int& x, int& y) {
+	int temp = x;
+	x = y;
+	y = temp;
+}
+
+// 重载版本：指针版本
+void swap(int* x, int* y) {
+	int temp = *x;
+	*x = *y;
+	*y = temp;
+}
+
+int main() {
+	using std::cin;
+	using std::cout;
+	using std::endl;
+
+	int x, y;
+	cin >> x >> y;
+
+	cout << "Before swap: x=" << x << ", y=" << y << endl;
+
+	// 调用引用版本 swap
+	swap(x, y);
+
+	cout << "After  swap: x=" << x << ", y=" << y << endl;
+
+	return 0;
+}
